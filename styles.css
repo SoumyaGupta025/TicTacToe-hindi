@@ -1,0 +1,181 @@
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background-color: black;
+}
+
+.board{
+  /* width: 95vw; */
+  height: 78vh;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+}
+
+.cell{
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border: 0.5px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+  border-top: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7){
+  border-left: none;
+}
+
+.cell:nth-child(3n){
+  border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7){
+  border-bottom: none;
+}
+
+.board.x .cell:not(.x):not(.o):hover::after,
+.board.x .cell:not(.x):not(.o):hover::before{
+  content: "";
+  background-color: #393e46;
+  color: white;
+  width: 12px;
+  height: 80px;
+  position: absolute;
+}
+
+.board.o .cell:not(.x):not(.o):hover::after,
+.board.o .cell:not(.x):not(.o):hover::before{
+  content: "";
+  background-color: #393e46 ;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.board.o .cell:not(.x):not(.o):hover::after{
+  content: "";
+  background-color: black;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.x::after,
+.cell.x::before{
+  content: "";
+  background-color: white;
+  color: white;
+  width: 12px;
+  height: 80px;
+  position: absolute;
+
+}
+
+.cell.o::after,
+.cell.o::before{
+  content: "";
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell::before{
+  transform: rotate(45deg);
+}
+
+.cell::after{
+  transform: rotate(-45deg);
+}
+
+.cell.o::after{
+  content: "";
+  background-color: black;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.x,
+.cell.o{
+  cursor: not-allowed;
+}
+
+
+/* styling restart button */
+.winning-msg{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+  font-size: 2.5rem;
+  flex-direction: column;
+
+}
+
+#restartBtn{
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 0.475rem;
+  font-family: 'Press Start 2P', cursive;
+  /* display: none; */
+}
+
+#restartBtn:hover{
+  background-color: #393e46;
+  color: white;
+}
+
+.winning-msg.show{
+  display: flex;
+}
+
+.dataTurn{
+  color: white;
+  font-size: 1.75rem;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+  padding-top : 15px;
+}
+
+.dataTurn.not-show{
+  display: none;
+}
+
+footer p {
+  color: white;
+  text-align: center;
+}
+
+footer a{
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover{
+  color: #393e46;
+}
